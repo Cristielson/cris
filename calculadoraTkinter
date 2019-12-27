@@ -1,19 +1,13 @@
 from tkinter import *
 from time import sleep
 
-#visor["background"] = "black" fundo
-#visor["foreground"] = "white" letra
-#Blackadder ITC
-#French Script MT
+#Janela de login
 
 janela1 = Tk()
 janela1.title("CRISTIELSON COMPROVER")
 janela1["bg"] = "black"
 tamanho123 = "485x640+330+33"
 janela1.geometry(tamanho123)
-
-
-
 
 
 def very():
@@ -40,13 +34,6 @@ def very():
 
 
 
-
-
-
-
-
-
-
 texto1 = Label(janela1, text="", font=("Arial Black", "20"), foreground="white", background="black")
 
 NamePassword = Label(janela1, text="Usuário: ", font=("Arial Black", "12"), foreground="white", background="black")
@@ -62,26 +49,16 @@ NameLogin.place(x=15, y=250)
 button.place(x=180, y=300)
 login.place(x=120, y=200)
 password.place(x=120, y=250)
-
 texto1.place(x=140, y=350)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 janela1.mainloop()
 
 
+
+
+
+#janela da calculadora
 
 janela = Tk()
 janela.title("CRISTIELSON CALCULATER")
