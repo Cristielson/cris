@@ -1,0 +1,522 @@
+from tkinter import *
+from time import sleep
+
+#visor["background"] = "black" fundo
+#visor["foreground"] = "white" letra
+#Blackadder ITC
+#French Script MT
+
+janela1 = Tk()
+janela1.title("CRISTIELSON COMPROVER")
+janela1["bg"] = "black"
+tamanho123 = "485x640+330+33"
+janela1.geometry(tamanho123)
+
+
+
+
+
+def very():
+    global texto1
+
+    password1 = password.get()
+    login1 = login.get()
+    password2 = open("password.bin", "a")
+    login2 = open("login.bin", "a")
+    password2 = open("password.bin", "r")
+    login2 = open("login.bin", "r")
+    password2 = password2.readlines()
+    login2 = login2.readlines()
+    password2 = password2[0]
+    login2 = login2[0]
+
+    if (login1 == login2) and (password1 == password2):
+        janela1.destroy()
+        a = open("accept.txt", "a")
+        a.write("SIM")
+    else:
+        texto1.place(x=100, y=350)
+        texto1["text"] = "Identidade negada"
+
+
+
+
+
+
+
+
+
+
+texto1 = Label(janela1, text="", font=("Arial Black", "20"), foreground="white", background="black")
+
+NamePassword = Label(janela1, text="Usuário: ", font=("Arial Black", "12"), foreground="white", background="black")
+NameLogin = Label(janela1, text="Senha: ", font=("Arial Black", "12"), foreground="white", background="black")
+button = Button(janela1, text="Confirmar", font=("Arial Black", "12"), foreground="red", background="blue", command=very)
+
+login = Entry(janela1, font=("Arial Black", "12"))
+password = Entry(janela1, font=("Arial Black", "12"), show="*")
+
+
+NamePassword.place(x=15, y=200)
+NameLogin.place(x=15, y=250)
+button.place(x=180, y=300)
+login.place(x=120, y=200)
+password.place(x=120, y=250)
+
+texto1.place(x=140, y=350)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+janela1.mainloop()
+
+
+
+janela = Tk()
+janela.title("CRISTIELSON CALCULATER")
+janela["bg"] = "orange"
+janela.geometry("485x640+330+33")
+Cal = []
+jan = ""
+
+visor = Label(janela, width="720", height="3", font=("Arial Black", "20"), text="")
+visor["background"] = "black"
+visor["foreground"] = "white"
+visor.place(x=0, y=0)
+visor.pack()
+
+
+name = Label(janela, text="CALCULADORA", font=("Arial Black", "20"))
+name.place(x=125, y=0)
+name["height"] = "-10"
+name["background"] = "orange"
+name["foreground"] = "dark blue"
+
+laf = Label(janela, width="2", height="640", bg="blue")
+raf = Label(janela, width="2", height="640", bg="blue")
+sk = Label(janela, width="720", height="1", bg="blue")
+dw = Label(janela, width="720", height="1", bg="blue")
+laf.pack(side=LEFT)
+raf.pack(side=RIGHT)
+sk.pack(side=TOP)
+dw.pack(side=BOTTOM)
+
+
+def n1():
+    global jan
+    visor["text"] += "1"
+    jan += "1"
+
+
+def n2():
+    global jan
+    visor["text"] += "2"
+    jan += "2"
+
+
+def n3():
+    global jan
+    visor["text"] += "3"
+    jan += "3"
+
+
+def n4():
+    global jan
+    visor["text"] += "4"
+    jan += "4"
+
+
+def n5():
+    global jan
+    visor["text"] += "5"
+    jan += "5"
+
+
+def n6():
+    global jan
+    visor["text"] += "6"
+    jan += "6"
+
+
+def n7():
+    global jan
+    visor["text"] += "7"
+    jan += "7"
+
+
+def n8():
+    global jan
+    visor["text"] += "8"
+    jan += "8"
+
+
+def n9():
+    global jan
+    visor["text"] += "9"
+    jan += "9"
+
+
+def n0():
+    global jan
+    visor["text"] += "0"
+    jan += "0"
+
+
+def c():
+    global jan
+    global Cal
+    Cal = []
+    jan = ""
+    visor["text"] = ""
+
+
+def som():
+    try:
+        global jan
+        global Cal
+
+        if (jan.isnumeric() == True):
+            jan = int(jan)
+            Cal.append(jan)
+        else:
+            pass
+
+        tam = len(Cal)
+        if tam == 0:
+            pass
+        if (Cal[tam - 1] == "+") or (Cal[tam - 1] == "-") or (Cal[tam - 1] == "X" or (Cal[tam - 1] == "/")):
+            pass
+        else:
+            visor["text"] += "+"
+            Cal.append("+")
+            jan = ""
+    except:
+        pass
+
+
+def sub():
+    try:
+        global jan
+        global Cal
+        if (jan.isnumeric() == True):
+            jan = int(jan)
+            Cal.append(jan)
+        else:
+            pass
+
+        tam = len(Cal)
+        if tam == 0:
+            pass
+        if (Cal[tam - 1] == "+") or (Cal[tam - 1] == "-") or (Cal[tam - 1] == "X" or (Cal[tam - 1] == "/")):
+            pass
+        else:
+            visor["text"] += "-"
+            Cal.append("-")
+            jan = ""
+    except:
+        pass
+
+
+def div():
+    try:
+        global jan
+        global Cal
+        if (jan.isnumeric() == True):
+            jan = int(jan)
+            Cal.append(jan)
+        else:
+            pass
+
+        tam = len(Cal)
+        if tam == 0:
+            pass
+        if (Cal[tam - 1] == "+") or (Cal[tam - 1] == "-") or (Cal[tam - 1] == "X" or (Cal[tam - 1] == "/")):
+            pass
+        else:
+            visor["text"] += "/"
+            Cal.append("/")
+            jan = ""
+    except:
+        pass
+
+
+def mul():
+    try:
+        global jan
+        global Cal
+        if (jan.isnumeric() == True):
+            jan = int(jan)
+            Cal.append(jan)
+        else:
+            pass
+
+        tam = len(Cal)
+        if tam == 0:
+            pass
+        if (Cal[tam - 1] == "+") or (Cal[tam - 1] == "-") or (Cal[tam - 1] == "X" or (Cal[tam - 1] == "/")):
+            pass
+        else:
+            visor["text"] += "X"
+            Cal.append("X")
+            jan = ""
+    except:
+        pass
+
+
+def ig():
+    try:
+        global jan
+        global Cal
+        if jan != "":
+            Cal.append(jan)
+        cont = 0
+        i = -1
+        tam = len(Cal)
+        if Cal[tam - 1].isnumeric() == False:
+            del(Cal[tam - 1])
+
+        x = Cal.count("X")
+        y = Cal.count("/")
+        mai = Cal.count("+")
+        men = Cal.count("-")
+
+        if (x == 0) and (y == 0) and (men == 0):
+            for i in Cal:
+                i = str(i)
+                i = i.replace("\n", "")
+                if i.isnumeric() == True:
+                    i = int(i)
+                    cont += i
+            visor["text"] = cont
+            jan = Cal[0]
+
+        elif (y == 0) and (mai == 0) and (men == 0):
+            cont = 1
+            for i in Cal:
+                i = str(i)
+                i = i.replace("\n", "")
+                if i.isnumeric() == True:
+                    i = int(i)
+                    cont *= i
+            visor["text"] = cont
+            jan = Cal[0]
+
+        elif (x == 0) and (y == 0) and (mai == 0):
+            i = 0
+            for u in range(len(Cal)):
+                sub = 0
+                try:
+                    if Cal[i] == "-":
+                        sub = int(Cal[i - 1]) - int(Cal[i + 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        Cal.insert(i - 1, sub)
+                        i = 0
+
+                    i += 1
+                    visor["text"] = Cal
+                    jan = Cal[0]
+                except:
+                    pass
+
+        elif (x == 0) and (men == 0) and (mai == 0):
+            i = 0
+            for u in range(len(Cal)):
+                div = 0
+                try:
+                    if Cal[i] == "/":
+                        div = int(Cal[i - 1]) / int(Cal[i + 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        Cal.insert(i - 1, div)
+                        i = 0
+
+                    i += 1
+                    visor["text"] = Cal
+                    jan = Cal[0]
+                except:
+                    pass
+
+        elif (x == 0) and (y == 0):
+            i = 0
+            for u in range(len(Cal)):
+                soma = sub = 0
+                try:
+                    if Cal[i] == "+":
+                        soma = int(Cal[i - 1]) + int(Cal[i + 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        Cal.insert(i - 1, soma)
+                        i = 0
+                    elif Cal[i] == "-":
+                        sub = int(Cal[i - 1]) - int(Cal[i + 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        Cal.insert(i - 1, sub)
+                        i = 0
+
+                    i += 1
+                    visor["text"] = Cal
+                    jan = Cal[0]
+
+                except:
+                    pass
+
+        else:
+
+            try:
+                i = 0
+                for u in range(len(Cal)):
+                    div = 0
+                    if Cal[i] == "/":
+                        div = float(Cal[i - 1]) / float(Cal[i + 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        Cal.insert(i - 1, div)
+                        i = 0
+
+                    i += 1
+                    visor["text"] = Cal
+            except:
+                pass
+
+            try:
+                i = 0
+                for u in range(len(Cal)):
+                    sub = 0
+                    if Cal[i] == "X":
+                        sub = float(Cal[i - 1]) * float(Cal[i + 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        Cal.insert(i - 1, sub)
+                        i = 0
+
+                    i += 1
+            except:
+                pass
+
+            try:
+                i = 0
+                for u in range(len(Cal)):
+                    sub = 0
+                    if Cal[i] == "X":
+                        sub = float(Cal[i - 1]) * float(Cal[i + 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        Cal.insert(i - 1, sub)
+                        i = 0
+
+                    i += 1
+            except:
+                pass
+
+            try:
+                i = 0
+                for u in range(len(Cal)):
+                    soma = sub = 0
+                    if Cal[i] == "+":
+                        soma = float(Cal[i - 1]) + float(Cal[i + 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        Cal.insert(i - 1, soma)
+                        i = 0
+                    elif Cal[i] == "-":
+                        sub = float(Cal[i - 1]) - float(Cal[i + 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        del (Cal[i - 1])
+                        Cal.insert(i - 1, sub)
+                        i = 0
+
+                    i += 1
+
+
+            except:
+                pass
+
+            Ab = Cal[0]
+            Ab = (f"{Ab: 0.5f}")
+            Ab = float(Ab)
+            try:
+                Ab = int(Ab)
+                visor["text"] = Ab
+                jan = Cal[0]
+            except:
+                visor["text"] = Ab
+                jan = Cal[0]
+
+    except:
+        pass
+
+
+
+N1 = Button(janela, text="1", font=("Arial Black", "18"), width="5", height='2', command=n1)
+N2 = Button(janela, text="2", font=("Arial Black", "18"), width="5", height='2', command=n2)
+N3 = Button(janela, text="3", font=("Arial Black", "18"), width="5", height='2', command=n3)
+N4 = Button(janela, text="4", font=("Arial Black", "18"), width="5", height='2', command=n4)
+N5 = Button(janela, text="5", font=("Arial Black", "18"), width="5", height='2', command=n5)
+N6 = Button(janela, text="6", font=("Arial Black", "18"), width="5", height='2', command=n6)
+N7 = Button(janela, text="7", font=("Arial Black", "18"), width="5", height='2', command=n7)
+N8 = Button(janela, text="8", font=("Arial Black", "18"), width="5", height='2', command=n8)
+N9 = Button(janela, text="9", font=("Arial Black", "18"), width="5", height='2', command=n9)
+N0 = Button(janela, text="0", font=("Arial Black", "16"), width="13", height='2', command=n0)
+
+M = Button(janela, text="+", font=("Arial Black", "18"), width="5", height='2', command=som)
+S = Button(janela, text="-", font=("Arial Black", "18"), width="5", height='2', command=sub)
+Mu = Button(janela, text="X", font=("Arial Black", "18"), width="5", height='2', command=mul)
+D = Button(janela, text="/", font=("Arial Black", "16"), width="6", height='2', command=div)
+C = Button(janela, text="C", font=("Arial Black", "16"), width="6", height='2', command=c)
+Ig = Button(janela, text="=", font=("Arial Black", "14"), width="32", height='2', command=ig)
+
+N1.place(x=30, y=158)
+N2.place(x=140, y=158)
+N3.place(x=250, y=158)
+M.place(x=360, y=158)
+
+N4.place(x=30, y=258)
+N5.place(x=140, y=258)
+N6.place(x=250, y=258)
+S.place(x=360, y=258)
+
+N7.place(x=30, y=358)
+N8.place(x=140, y=358)
+N9.place(x=250, y=358)
+Mu.place(x=360, y=358)
+
+N0.place(x=30, y=458)
+D.place(x=360, y=458)
+C.place(x=250, y=458)
+Ig.place(x=30, y=544)
+
+
+c = open("accept.txt", "a")
+a = open("accept.txt", "r")
+c.close()
+a = a.readlines()
+if len(a) == 1 and a[0] == "SIM":
+    janela.mainloop()
+else:
+    del(a[0])
+    print("Erro")
+
+import os
+os.remove("accept.txt")
